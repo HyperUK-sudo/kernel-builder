@@ -53,7 +53,7 @@ on: # [push]
       TG_RECIPENT:
         description: 'idk'
         required: false
-        default: '5863300453'
+        default: '-1003988112984'
       CONTAINER:
         description: 'if you know you know'
         required: true
