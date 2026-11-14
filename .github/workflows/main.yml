@@ -24,7 +24,7 @@ on: # [push]
       KBRANCH:
         description: 'kernel branch'
         required: true
-        default: 'sashimi'
+        default: 'susfs'
       NOTES:
         description: 'notes to print out'
         required: false
@@ -49,7 +49,7 @@ on: # [push]
           - sus
           - one
           - ksu
-        default: ksu
+        default: sus
       TG_RECIPENT:
         description: 'idk'
         required: false
