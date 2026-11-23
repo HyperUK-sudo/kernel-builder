@@ -15,7 +15,7 @@ export KBUILD_BUILD_HOST="HyperUK-sudo"
 export defconfig="blossom_defconfig"
 
 if [[ -z "$zipper_repo" ]]; then
-  export zipper_repo="https://github.com/zyexro/AnyKernel3"
+  export zipper_repo="https://github.com/HyperUK-sudo/AnyKernel3"
 fi
 if [[ -z "$zipper_branch" ]]; then
   export zipper_branch=blossom

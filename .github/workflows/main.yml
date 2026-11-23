@@ -36,7 +36,7 @@ on: # [push]
       ZREPO:
         description: 'zipper repo'
         required: false
-        default: 'https://github.com/zyexro/AnyKernel3.git'
+        default: 'https://github.com/HyperUK-sudo/AnyKernel3.git'
       ZBRANCH:
         description: 'zipper branch'
         required: false
