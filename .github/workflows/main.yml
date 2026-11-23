@@ -49,7 +49,7 @@ on: # [push]
           - sus
           - one
           - ksu
-        default: sus
+        default: ksu
       TG_RECIPENT:
         description: 'idk'
         required: false
