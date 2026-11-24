@@ -50,6 +50,10 @@ on: # [push]
           - one
           - ksu
         default: ksu
+      KPM:
+        description: "SukiSU KPM"
+        type: boolean
+        default: false
       TG_RECIPENT:
         description: 'idk'
         required: false
@@ -71,6 +75,7 @@ env:
   SUFFIX: ${{ github.event.inputs.SUFFIX }}
   zipper_repo: ${{ github.event.inputs.ZREPO }}
   zipper_branch: ${{ github.event.inputs.ZBRANCH }}
+  KPM: ${{ github.event.inputs.KPM }}
   TZ: Africa/Tunis
 
 jobs:
@@ -123,6 +128,12 @@ jobs:
         - name: run compilation scripts
           run: |
             cd kernel
+            case $KPM in
+              "true" )
+                bash ../tg_utils.sh msg "gh $RUN_NUM: SukiSU KPM enabled"
+                bash ../ksu/ds/ds.sh
+              ;;
+            esac
             case $PATCH_KSU in
               "both" )
                 bash ../tg_utils.sh msg "gh $RUN_NUM: running compilation script(s): $COMPILERS"
