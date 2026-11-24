@@ -131,7 +131,7 @@ jobs:
             case $KPM in
               "true" )
                 bash ../tg_utils.sh msg "gh $RUN_NUM: SukiSU KPM enabled"
-                bash ../ksu/ds/ds.sh
+                bash ../ksu/kpm.sh
               ;;
             esac
             case $PATCH_KSU in
