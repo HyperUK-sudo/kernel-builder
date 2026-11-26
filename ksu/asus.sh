@@ -28,5 +28,5 @@ sed -i "s/\(CONFIG_LOCALVERSION=\)\(.*\)/\1\"-${kernel_name}-ks${KSU_ver}sus\"/"
 echo "$(grep 'CONFIG_LOCALVERSION=' ${defconfig_file})"
 
 echo -e " \nincludes SukiSU, ver ${KSU_ver}" >> banner_append
-echo -e " \nincludes SuSFS v2.3" >> banner_append
+echo -e " \nincludes SuSFS v2.4.0" >> banner_append
 
