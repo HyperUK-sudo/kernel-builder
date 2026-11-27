@@ -46,14 +46,9 @@ on: # [push]
         type: choice
         options:
           - both
-          - sus
           - one
           - ksu
-        default: sus
-      KPM:
-        description: "SukiSU KPM"
-        type: boolean
-        default: false
+        default: ksu
       TG_RECIPENT:
         description: 'idk'
         required: false
@@ -75,7 +70,6 @@ env:
   SUFFIX: ${{ github.event.inputs.SUFFIX }}
   zipper_repo: ${{ github.event.inputs.ZREPO }}
   zipper_branch: ${{ github.event.inputs.ZBRANCH }}
-  KPM: ${{ github.event.inputs.KPM }}
   TZ: Africa/Tunis
 
 jobs:
@@ -128,24 +122,12 @@ jobs:
         - name: run compilation scripts
           run: |
             cd kernel
-            case $KPM in
-              "true" )
-                bash ../tg_utils.sh msg "gh $RUN_NUM: SukiSU KPM enabled"
-                bash ../ksu/kpm.sh
-              ;;
-            esac
             case $PATCH_KSU in
               "both" )
                 bash ../tg_utils.sh msg "gh $RUN_NUM: running compilation script(s): $COMPILERS"
                 bash ../build.sh "$COMPILERS"
-                bash ../tg_utils.sh msg "gh $RUN_NUM: KernelSU patching enabled, patching"
-                bash ../ksu/applyPatches.sh
-                bash ../tg_utils.sh msg "gh $RUN_NUM: running compilation script(s): $COMPILERS"
-                bash ../build.sh "$COMPILERS"
-              ;;
-              "sus" )
                 bash ../tg_utils.sh msg "gh $RUN_NUM: KernelSU and SuSFS patching enabled, patching"
-                bash ../ksu/asus.sh
+                bash ../ksu/applyPatches.sh
                 bash ../tg_utils.sh msg "gh $RUN_NUM: running compilation script(s): $COMPILERS"
                 bash ../build.sh "$COMPILERS"
               ;;
@@ -154,7 +136,7 @@ jobs:
                 bash ../build.sh "$COMPILERS"
               ;;
               "ksu" )
-                bash ../tg_utils.sh msg "gh $RUN_NUM: KernelSU patching enabled, patching"
+                bash ../tg_utils.sh msg "gh $RUN_NUM: KernelSU and SuSFS patching enabled, patching"
                 bash ../ksu/applyPatches.sh
                 bash ../tg_utils.sh msg "gh $RUN_NUM: running compilation script(s): $COMPILERS"
                 bash ../build.sh "$COMPILERS"
